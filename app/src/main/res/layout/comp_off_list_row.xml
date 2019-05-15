@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/colorWhite"
+    android:shrinkColumns="*"
+    android:stretchColumns="*"
+    android:orientation="vertical">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/colorPrimary" />
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@drawable/cell_shape"
+        android:paddingBottom="@dimen/_5sdp"
+        android:paddingTop="@dimen/_5sdp"
+        android:weightSum="6">
+
+        <TextView
+            android:id="@+id/comp_off_date"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1.3"
+            android:gravity="center"
+            android:text="Comp off date"
+            android:textSize="@dimen/_9sdp"
+            android:textStyle="bold" />
+
+
+        <TextView
+            android:id="@+id/tv_req_date"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1.3"
+            android:textSize="@dimen/_9sdp"
+            android:gravity="center"
+            android:text="Request Date"
+            android:textStyle="bold" />
+
+
+        <TextView
+            android:id="@+id/tv_days_earned"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1.1"
+            android:gravity="center"
+            android:text="Days Earned "
+            android:textSize="@dimen/_9sdp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_availed_days"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight=".8"
+            android:gravity="center"
+            android:textSize="@dimen/_9sdp"
+            android:text=" Days Availed "
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_balnce_days"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight=".8"
+            android:textSize="@dimen/_9sdp"
+            android:gravity="center"
+            android:text="balance days"
+            android:textStyle="bold" />
+        <CheckBox
+            android:id="@+id/check_box"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight=".6"
+            android:textSize="@dimen/_9sdp"
+            android:gravity="center"
+
+            android:textStyle="bold" />
+
+    </TableRow>
+
+
+</LinearLayout>

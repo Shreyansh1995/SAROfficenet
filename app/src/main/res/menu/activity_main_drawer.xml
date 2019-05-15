@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/nav_notes"
+            android:icon="@drawable/notes"
+            android:title="Notes" />
+
+
+        <item
+            android:id="@+id/nav_suggestion"
+            android:icon="@drawable/suggestion"
+            android:title="Suggestion" />
+
+        <item
+            android:id="@+id/nav_bday"
+            android:icon="@drawable/birthday"
+            android:title="Birthday" />
+        <item
+            android:id="@+id/nav_newJoinee"
+            android:icon="@drawable/new_joinee"
+            android:title="New Joinee" />
+        <item
+            android:id="@+id/nav_team"
+            android:icon="@drawable/team"
+            android:title="My Team" />
+
+        <item
+            android:id="@+id/nav_logout"
+            android:icon="@drawable/help"
+            android:title="Logout" />
+    </group>
+    </menu>

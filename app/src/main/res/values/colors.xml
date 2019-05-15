@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#0064b6</color>
+    <color name="colorPrimaryDark">#025090</color>
+    <color name="colorAccent">#0064b6</color>
+    <color name="colorWhite">#FFFFFF</color>
+    <color name="colorGray">#E2E2E2</color>
+    <color name="colorBlack">#000000</color>
+    <color name="txt_color">#D3000000</color>
+    <color name="border_color">#83000000</color>
+    <color name="grey">#bcbbbb</color>
+    <color name="header_grey_color">#e7e7e7</color>
+    <color name="lightgrey">#26e7e7e7</color>
+
+
+    <!--<color name="icon_dark_blue">#11235B</color>-->
+
+    <color name="icon_bg">#056DAF</color>
+
+    <color name="holiday_yellow">#ffa500</color>
+    <color name="calendercolorblue">#2488ed</color>
+    <color name="calendercolorgrey">#f2f0fb</color>
+
+    <color name="disapprove">#FA8072
+    </color>
+    <color name="approve">#04AE04
+    </color>
+    <color name="pending">#edc217</color>
+    <color name="red">#FF0000</color>
+
+
+</resources>

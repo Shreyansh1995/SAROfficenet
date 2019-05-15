@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/_5sdp">
+
+    <TextView
+        android:id="@+id/tv_notes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Testing"
+        android:layout_toLeftOf="@+id/iv_dlt"
+        android:layout_alignParentLeft="true"
+        android:textColor="@color/colorBlack"/>
+    <TextView
+        android:id="@+id/tv_date"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="12/04/2019"
+        android:layout_below="@+id/tv_notes"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:layout_alignParentLeft="true"
+        android:textColor="@color/colorPrimary"/>
+    <ImageView
+        android:id="@+id/iv_dlt"
+        android:layout_width="@dimen/_20sdp"
+        android:layout_height="@dimen/_20sdp"
+        android:src="@drawable/delete"
+        android:layout_marginRight="@dimen/_10sdp"
+       android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"/>
+
+</RelativeLayout>

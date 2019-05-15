@@ -1,0 +1,525 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.netcommlabs.sarofficenet.fragments.FragmentMyProfile">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- <FrameLayout
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content">
+
+             <ImageView
+                 android:id="@+id/iv_blur"
+                 android:layout_width="match_parent"
+                 android:layout_height="@dimen/_120sdp"
+                 android:scaleType="fitXY"
+                 android:src="@drawable/slider_one" />
+
+             <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+                 android:id="@+id/imageView"
+                 android:layout_width="66dp"
+                 android:layout_height="66dp"
+                 android:layout_gravity="center"
+                 android:src="@drawable/comp_logo"
+                 app:civ_border_color="@color/colorWhite"
+                 app:civ_border_width="2dp" />
+
+             <TextView
+                 android:id="@+id/tv_name"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:layout_gravity="center"
+                 android:paddingTop="@dimen/nav_header_vertical_spacing"
+                 android:text="Android Studio"
+                 android:layout_marginTop="@dimen/_35sdp"
+                 android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                 android:textColor="@color/colorWhite" />
+
+             <TextView
+                 android:id="@+id/tv_designation"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:layout_gravity="center"
+                 android:text="Designation"
+                 android:layout_marginTop="@dimen/_50sdp"
+                 android:textColor="@color/colorWhite" />
+         </FrameLayout>-->
+
+
+        <!-- <LinearLayout
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:layout_gravity="center"
+             android:gravity="center"
+             android:orientation="horizontal"
+             android:weightSum="2">
+
+             <LinearLayout
+                 android:layout_width="0dp"
+                 android:layout_height="wrap_content"
+                 android:layout_gravity="center"
+                 android:layout_weight="1"
+                 android:background="@color/icon_bg"
+                 android:gravity="center"
+                 android:orientation="vertical"
+                 android:padding="@dimen/_2sdp">
+
+                 <TextView
+                     android:id="@+id/tv_dob"
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:text="12/12/12"
+                     android:textColor="@color/colorWhite"
+                     android:textSize="@dimen/textsize" />
+
+                 <TextView
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:text="Date of Birth"
+                     android:textColor="@color/colorWhite"
+                     android:textSize="@dimen/textsize" />
+
+             </LinearLayout>
+
+             <LinearLayout
+                 android:layout_width="0dp"
+                 android:layout_height="wrap_content"
+                 android:layout_gravity="center"
+                 android:layout_weight="1"
+                 android:gravity="center"
+                 android:background="@color/colorPrimary"
+                 android:orientation="vertical"
+                 android:padding="@dimen/_2sdp">
+
+                 <TextView
+                     android:id="@+id/tv_doj"
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:text="12/12/12"
+                     android:textColor="@color/colorWhite"
+                     android:textSize="@dimen/textsize" />
+
+                 <TextView
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:text="Date of Joining"
+                     android:textColor="@color/colorWhite"
+                     android:textSize="@dimen/textsize" />
+
+             </LinearLayout>
+
+             &lt;!&ndash; <LinearLayout
+                  android:layout_width="0dp"
+                  android:layout_height="wrap_content"
+                  android:orientation="vertical"
+                  android:layout_gravity="center"
+                  android:gravity="center"
+                  android:layout_weight="1">
+                  <ImageView
+                      android:layout_width="@dimen/_30sdp"
+                      android:layout_height="@dimen/_30sdp"
+                      android:src="@drawable/surveyhome"
+                      android:tint="@color/colorWhite"/>
+                  <TextView
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:text="Contact"
+                      android:textSize="@dimen/textsize"
+                      android:textColor="@color/colorWhite"/>
+
+              </LinearLayout>
+              <LinearLayout
+                  android:layout_width="0dp"
+                  android:layout_height="wrap_content"
+                  android:orientation="vertical"
+                  android:layout_gravity="center"
+                  android:gravity="center"
+                  android:layout_weight="1">
+                  <ImageView
+                      android:layout_width="@dimen/_30sdp"
+                      android:layout_height="@dimen/_30sdp"
+                      android:src="@drawable/gallerybottom" />
+                  <TextView
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:text="Gallery"
+                      android:textSize="@dimen/textsize"
+                      android:textColor="@color/colorWhite"/>
+
+              </LinearLayout>
+              <LinearLayout
+                  android:layout_width="0dp"
+                  android:layout_height="wrap_content"
+                  android:orientation="vertical"
+                  android:layout_gravity="center"
+                  android:gravity="center"
+                  android:layout_weight="1">
+                  <ImageView
+                      android:layout_width="@dimen/_30sdp"
+                      android:layout_height="@dimen/_30sdp"
+                      android:src="@drawable/my_team"
+                      android:tint="@color/colorWhite"/>
+                  <TextView
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:text="Team"
+                      android:textSize="@dimen/textsize"
+                      android:textColor="@color/colorWhite"/>
+
+              </LinearLayout>&ndash;&gt;
+
+         </LinearLayout>
+     </LinearLayout>-->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginLeft="@dimen/_10sdp">
+
+            <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/imageView"
+                android:layout_width="@dimen/_85sdp"
+                android:layout_height="@dimen/_85sdp"
+                android:src="@drawable/comp_logo"
+                app:civ_border_color="@color/colorWhite"
+                app:civ_border_width="2dp" />
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_gravity="center"
+                    android:text="Android Studio"
+                    android:textStyle="bold"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                    android:textColor="@color/colorBlack" />
+
+                <TextView
+                    android:id="@+id/tv_designation"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tv_name"
+                    android:layout_centerHorizontal="true"
+                    android:layout_gravity="center"
+                    android:text="Designation"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorBlack" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tv_designation"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="@dimen/_1sdp">
+
+                        <TextView
+                            android:id="@+id/tv_dob"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="12/12/12"
+                            android:textColor="@color/colorBlack"
+                            android:textSize="@dimen/textsize" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Date of Birth"
+                            android:textColor="@color/colorPrimary"
+                            android:textSize="@dimen/textsize" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="@dimen/_1sdp">
+
+                        <TextView
+                            android:id="@+id/tv_doj"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="12/12/12"
+                            android:textColor="@color/colorBlack"
+                            android:textSize="@dimen/textsize" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Date of Joining"
+                            android:textColor="@color/colorPrimary"
+                            android:textSize="@dimen/textsize" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+            </RelativeLayout>
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_marginTop="@dimen/_3sdp"
+            android:background="@color/colorBlack" />
+
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_15sdp"
+            android:layout_marginTop="@dimen/_3sdp"
+            android:layout_marginRight="@dimen/_15sdp"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Employee Code"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/textsize" />
+
+            <TextView
+                android:id="@+id/tv_empcode"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="admin"
+                android:textColor="@color/border_color"
+                android:textSize="@dimen/textsize" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_marginTop="@dimen/_3sdp"
+                android:background="@color/border_color" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_3sdp"
+                android:text="Email Id"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/textsize" />
+
+
+            <TextView
+                android:id="@+id/tv_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="admin@abc.com"
+                android:textColor="@color/border_color"
+                android:textSize="@dimen/textsize" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_marginTop="@dimen/_3sdp"
+                android:background="@color/border_color" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_3sdp"
+                android:text="Mobile Number"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/textsize" />
+
+            <TextView
+                android:id="@+id/tv_mobile"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="0123657890"
+                android:textColor="@color/border_color"
+                android:textSize="@dimen/textsize" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_marginTop="@dimen/_3sdp"
+                android:background="@color/border_color" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_3sdp"
+                android:text="Department"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/textsize" />
+
+            <TextView
+                android:id="@+id/tv_dept"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Department"
+                android:textColor="@color/border_color"
+                android:textSize="@dimen/textsize" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_marginTop="@dimen/_3sdp"
+                android:background="@color/border_color" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_3sdp"
+                android:text="Reporting Maneger"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/textsize" />
+
+            <TextView
+                android:id="@+id/tv_rm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="RM"
+                android:textColor="@color/border_color"
+                android:textSize="@dimen/textsize" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_marginTop="@dimen/_3sdp"
+                android:background="@color/border_color" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_3sdp"
+                android:text="Head of Department"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/textsize" />
+
+            <TextView
+                android:id="@+id/tv_hod"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="hod"
+                android:textColor="@color/border_color"
+                android:textSize="@dimen/textsize" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_marginTop="@dimen/_3sdp"
+                android:background="@color/border_color" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_3sdp"
+                android:text="Location"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/textsize" />
+
+            <TextView
+                android:id="@+id/tv_location"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="location"
+                android:textColor="@color/border_color"
+                android:textSize="@dimen/textsize" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_marginTop="@dimen/_3sdp"
+                android:background="@color/border_color" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_3sdp"
+                android:text="Blood Group"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/textsize" />
+
+            <TextView
+                android:id="@+id/tv_bloodgrop"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="A+"
+                android:textColor="@color/border_color"
+                android:textSize="@dimen/textsize" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_marginTop="@dimen/_3sdp"
+                android:background="@color/border_color" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_3sdp"
+                android:text="Grade"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/textsize" />
+
+            <TextView
+                android:id="@+id/tv_grade"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="1"
+                android:textColor="@color/border_color"
+                android:textSize="@dimen/textsize" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_marginTop="@dimen/_3sdp"
+                android:background="@color/border_color" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_3sdp"
+                android:text="Employee Status"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/textsize" />
+
+            <TextView
+                android:id="@+id/tv_empstatus"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/_20sdp"
+                android:text="Confirmed"
+                android:textColor="@color/border_color"
+                android:textSize="@dimen/textsize" />
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

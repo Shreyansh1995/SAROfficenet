@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "838522830674",
+    "firebase_url": "https://sar-officenet.firebaseio.com",
+    "project_id": "sar-officenet",
+    "storage_bucket": "sar-officenet.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:838522830674:android:79947da8fda98fc4",
+        "android_client_info": {
+          "package_name": "com.netcommlabs.sarofficenet"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "838522830674-o5v2dumvcp2br7oosdroc3bog1st3q7e.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.netcommlabs.sarofficenet",
+            "certificate_hash": "914a8b5826bb316e6d9d6b50a3fd2b952c1d8253"
+          }
+        },
+        {
+          "client_id": "838522830674-5lkt50imompgnjb898delrecspl7i9ir.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCPsuNI_WZsRE6PF62seMIzho2v0N8RQw4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "838522830674-5lkt50imompgnjb898delrecspl7i9ir.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

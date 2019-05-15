@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <EditText
+        android:id="@+id/et_msg"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:layout_gravity="top"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/et_border"
+        android:gravity="top"
+        android:hint="Enter your suggestion here..."
+        android:padding="15dp"
+        android:textColor="@android:color/black" />
+
+
+
+        <TextView
+            android:id="@+id/tv_attach"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/ivatt"
+            android:text="Attach File"
+            android:padding="@dimen/_15sdp"
+            android:layout_marginLeft="@dimen/_3sdp"
+            android:textColor="@color/colorPrimary"
+            android:textSize="16sp" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="2">
+
+        <Button
+            android:id="@+id/btn_anonymous"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginRight="@dimen/_5sdp"
+            android:layout_weight="1"
+            android:background="@color/colorPrimary"
+            android:text="Send as anonymous"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/textsizesmall" />
+
+        <Button
+            android:id="@+id/btn_identity"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_5sdp"
+            android:layout_marginTop="40dp"
+            android:layout_marginRight="20dp"
+            android:layout_weight="1"
+            android:background="@color/colorPrimary"
+            android:text="Send with identity"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/textsizesmall" />
+    </LinearLayout>
+
+
+</LinearLayout>

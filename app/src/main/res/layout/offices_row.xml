@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/_5sdp">
+
+
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_toRightOf="@+id/profile_image"
+            android:text="Shreyansh"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/textsize" />
+
+        <TextView
+            android:id="@+id/tv_designation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_name"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_2sdp"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:layout_toRightOf="@+id/profile_image"
+            android:text="Shreyansh"
+            android:textSize="@dimen/textsizesmall" />
+        <ImageView
+            android:id="@+id/iv_arrow"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/_5sdp"
+            android:src="@drawable/arrowright"
+            android:tint="@color/grey" />
+    </RelativeLayout>
+    <View
+        android:id="@+id/view"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_1sdp"
+        android:background="@color/header_grey_color"
+        android:layout_marginTop="@dimen/_1sdp" />
+    <RelativeLayout
+        android:id="@+id/rl_details"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/_5sdp"
+        android:layout_marginLeft="@dimen/_10sdp"
+        android:layout_marginRight="@dimen/_10sdp"
+        android:background="@color/header_grey_color"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/tvdob"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:text="Contact Person"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/textsize" />
+
+        <TextView
+            android:id="@+id/tv_dob"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:text="12/12/12"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/textsize" />
+
+        <TextView
+            android:id="@+id/tvdoj"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:text="Email ID"
+            android:layout_below="@+id/tvdob"
+            android:layout_marginTop="@dimen/_3sdp"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/textsize" />
+
+        <TextView
+            android:id="@+id/tv_doj"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:text="12/12/12"
+            android:layout_below="@+id/tvdob"
+            android:layout_marginTop="@dimen/_3sdp"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/textsize" />
+
+        <TextView
+            android:id="@+id/tvdprt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:text="Office Category"
+            android:layout_below="@+id/tvdoj"
+            android:layout_marginTop="@dimen/_3sdp"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/textsize" />
+
+        <TextView
+            android:id="@+id/tv_dprt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:text="I.T"
+            android:layout_below="@+id/tvdoj"
+            android:layout_marginTop="@dimen/_3sdp"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/textsize" />
+
+        <TextView
+            android:id="@+id/tvlocation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:text="Country"
+            android:layout_below="@+id/tv_dprt"
+            android:layout_marginTop="@dimen/_3sdp"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/textsize" />
+
+        <TextView
+            android:id="@+id/tv_location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/tv_dprt"
+            android:layout_marginTop="@dimen/_3sdp"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/textsize" />
+    </RelativeLayout>
+
+</LinearLayout>

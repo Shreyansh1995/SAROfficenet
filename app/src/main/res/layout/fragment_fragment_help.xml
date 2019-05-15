@@ -1,0 +1,200 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.netcommlabs.sarofficenet.fragments.FragmentNewJoinee">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_50sdp"
+        android:gravity="center"
+        android:text="Humsar - Officenet"
+        android:textColor="@color/colorBlack"
+        android:textSize="@dimen/_18sdp" />
+
+    <ImageView
+        android:layout_width="@dimen/_150sdp"
+        android:layout_height="@dimen/_150sdp"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:src="@mipmap/ic_launcher" />
+
+    <TextView
+        android:id="@+id/tv_version"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Version "
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        android:textColor="@color/colorBlack" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:layout_marginTop="@dimen/_20sdp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_marginLeft="@dimen/_20sdp"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/ivcall"
+                android:layout_width="14dp"
+                android:layout_height="14dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:src="@drawable/call" />
+
+            <ImageView
+                android:id="@+id/ivemail"
+                android:layout_width="14dp"
+                android:layout_height="14dp"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_toLeftOf="@+id/tv_email"
+                android:src="@drawable/email" />
+
+            <ImageView
+                android:id="@+id/ivweb"
+                android:layout_width="14dp"
+                android:layout_height="14dp"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_toLeftOf="@+id/tv_site"
+                android:src="@drawable/web" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+           android:layout_marginLeft="@dimen/_10sdp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_contact"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="+91-120 2975660"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                android:textColor="@color/colorBlack" />
+
+            <TextView
+                android:id="@+id/tv_email"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="techsupport@netcommlabs.in"
+                android:layout_marginTop="@dimen/_2sdp"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                android:textColor="@color/colorBlack" />
+
+            <TextView
+                android:id="@+id/tv_site"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" officenet.in"
+                android:layout_marginTop="@dimen/_2sdp"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                android:textColor="@color/colorBlack" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!-- <RelativeLayout
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:layout_gravity="center"
+         android:gravity="center"
+         android:layout_marginTop="@dimen/_20sdp">
+
+         <ImageView
+             android:id="@+id/ivcall"
+             android:layout_width="14dp"
+             android:layout_height="14dp"
+             android:src="@drawable/call"
+             android:layout_centerVertical="true"
+             android:layout_toLeftOf="@+id/tv_contact"
+             android:layout_gravity="center"/>
+
+         <TextView
+             android:id="@+id/tv_contact"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:gravity="center"
+             android:layout_marginLeft="@dimen/_10sdp"
+             android:layout_centerInParent="true"
+             android:text="+91-120 2975660"
+             android:textAppearance="@style/TextAppearance.AppCompat.Small"
+             android:textColor="@color/colorBlack" />
+     </RelativeLayout>
+
+     <RelativeLayout
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:layout_gravity="center"
+         android:gravity="center"
+         android:layout_marginTop="@dimen/_5sdp">
+
+         <ImageView
+             android:id="@+id/ivemail"
+             android:layout_width="14dp"
+             android:layout_height="14dp"
+             android:src="@drawable/email"
+             android:layout_centerVertical="true"
+
+             android:layout_toLeftOf="@+id/tv_email"
+             android:layout_gravity="center"/>
+         <TextView
+             android:id="@+id/tv_email"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:gravity="center"
+             android:layout_marginLeft="@dimen/_10sdp"
+             android:layout_centerInParent="true"
+             android:text="techsupport@netcommlabs.in"
+             android:textAppearance="@style/TextAppearance.AppCompat.Small"
+             android:textColor="@color/colorBlack" />
+
+     </RelativeLayout>
+
+     <RelativeLayout
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:layout_gravity="center"
+         android:gravity="center"
+         android:layout_marginTop="@dimen/_5sdp">
+
+         <ImageView
+             android:id="@+id/ivweb"
+             android:layout_width="14dp"
+             android:layout_height="14dp"
+             android:src="@drawable/web"
+             android:layout_centerVertical="true"
+
+             android:layout_toLeftOf="@+id/tv_site"
+             android:layout_gravity="center"/>
+
+         <TextView
+             android:id="@+id/tv_site"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:gravity="center"
+             android:layout_marginLeft="@dimen/_10sdp"
+             android:layout_centerInParent="true"
+             android:text=" officenet.in"
+             android:textAppearance="@style/TextAppearance.AppCompat.Small"
+             android:textColor="@color/colorBlack" />
+     </RelativeLayout>-->
+
+
+</LinearLayout>

@@ -100,8 +100,29 @@ public class UrlConstants {
     public static final String DELETE_NOTIFICATION= BASE_URL + "ClearPushNotification";
     public static final String HELP= BASE_URL + "GetContactDetails";
 
+    /***********************************HelpDesk*************************************/
+    public static final String GET_DEPARTMENT= BASE_URL + "HelpDesk_DepartmentList";
+    public static final String GET_CATEGORYLIST= BASE_URL + "HelpDesk_CategoryList";
+    public static final String GET_SUBCATEGORYLIST= BASE_URL + "HelpDesk_SubCategoryList";
+    public static final String SUBMITHELPDESK= BASE_URL + "HelpDesk_SubmitRequest";
+    public static final String VALIDATEREF= BASE_URL + "HelpDesk_ValidateTicketRefNo";
+
+    public static final String TICKET_LIST= BASE_URL + "HelpDesk_GetDetails";
+    public static final String TICKET_LIST_DETAIL= BASE_URL + "HelpDesk_ViewDetails";
+    public static final String IS_ADMIN= BASE_URL + "HelpDesk_IsHelpDeskAdmin";
+
+    public static final String TICKET_LIST_ADMIN= BASE_URL + "HelpDesk_AdminRequestList";
+    public static final String CATEGORY_LIST_ADMIN= BASE_URL + "HelpDesk_AdminCategoryList";
+    public static final String SUBMITTEDBY= BASE_URL + "HelpDesk_SubmittedByUsersList";
 
 
+    public static final String HOLD= BASE_URL + "HelpDesk_Hold";
+    public static final String SOLVED= BASE_URL + "HelpDesk_Solved";
+    public static final String REASSIGN= BASE_URL + "HelpDesk_ReassignSubmitRequest";
+
+    /***********************************Punch In/out*************************************/
+    public static final String GET_STATUS= BASE_URL + "GetInOutStatus";
+    public static final String SAVEPUNCHINOOUT= BASE_URL + "SavePunchInOutDetails";
     //------------------Tags--------------------
     public static final int USER_AUTH_TAG = 1001;
     public static final int GALLERY_CATEGORY_TAG = 1002;
@@ -161,4 +182,20 @@ public class UrlConstants {
     public static final int DELETE_NOTIFICATION_TAG = 1053;
     public static final int FORGOT_PASSWORD_TAG = 1054;
     public static final int HELP_TAG = 1055;
+    public static final int GET_DEPARTMENT_TAG = 1056;
+    public static final int GET_CATEGORYLIST_TAG = 1057;
+    public static final int GET_SUBCATEGORYLIST_TAG = 1058;
+    public static final int SUBMITHELPDESK_TAG = 1059;
+    public static final int VALIDATEREF_TAG = 1060;
+    public static final int TICKET_LIST_TAG = 1061;
+    public static final int TICKET_LIST_DETAIL_TAG = 1062;
+    public static final int IS_ADMIN_TAG = 1063;
+    public static final int TICKET_LIST_ADMIN_TAG = 1064;
+    public static final int CATEGORY_LIST_ADMIN_TAG = 1065;
+    public static final int SUBMITTEDBY_TAG = 1066;
+    public static final int HOLD_TAG = 1067;
+    public static final int SOLVED_TAG = 1068;
+    public static final int REASSIGNED_TAG = 1069;
+    public static final int GET_STATUS_TAG = 1070;
+    public static final int SAVEPUNCHINOOUT_TAG = 1071;
 }

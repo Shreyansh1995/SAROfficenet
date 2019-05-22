@@ -179,7 +179,7 @@ public class FragmentNotes extends Fragment implements ResponseListener {
                     notesAdapter.notifyDataSetChanged();
 
                 }else {
-                    AppAlertDialog.showDialogSelfFinish(activity, "", call.optString("Message"));
+                  //  AppAlertDialog.showDialogSelfFinish(activity, "", call.optString("Message"));
                 }
             }else if (Tag == DELETE_NOTES_TAG){
                 if (call.getString("Message").equalsIgnoreCase("Success")){

@@ -161,13 +161,6 @@ public class MainActivity extends AppCompatActivity
             try {
                 Bitmap thumbnail = (Bitmap) data.getExtras().get("data");
                 imageView.setImageBitmap(thumbnail);
-            /*    InputStream stream = null;
-                stream = getContentResolver().openInputStream(data.getData());
-                thumbnail = BitmapFactory.decodeStream(stream);
-                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-                thumbnail.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);
-                byte[] byteArray = byteArrayOutputStream.toByteArray();
-                 encodedResume = Base64.encodeToString(byteArray, Base64.DEFAULT);*/
 
                 ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
                 thumbnail.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);
@@ -313,6 +306,12 @@ public class MainActivity extends AppCompatActivity
             intentteam.putExtra("frag_tag", "teamlist");
             intentteam.putExtra("title", "My Team");
             startActivity(intentteam);
+        }else if (id == R.id.nav_att) {
+            Intent intentteam = new Intent(this, FrameActivity.class);
+            intentteam.putExtra("frag_name", "FragmentPunchinOut");
+            intentteam.putExtra("frag_tag", "attendance");
+            intentteam.putExtra("title", "Attendace");
+            startActivity(intentteam);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -352,6 +351,11 @@ public class MainActivity extends AppCompatActivity
     public void onSuccess(JSONObject call, int Tag) {
         clearRef();
         if (Tag == LOG_OUT_TAG) {
+            SharedPreferences preferences = getSharedPreferences("ATTENDANCE", Context.MODE_PRIVATE);
+            SharedPreferences.Editor editor = preferences.edit();
+            editor.clear();
+            editor.commit();
+
             Intent intent = new Intent(this, LoginActivity.class);
             startActivity(intent);
             finish();

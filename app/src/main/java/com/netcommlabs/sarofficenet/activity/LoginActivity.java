@@ -38,7 +38,7 @@ import static com.netcommlabs.sarofficenet.constants.UrlConstants.FORGOT_PASSWOR
 public class LoginActivity extends AppCompatActivity implements ResponseListener, View.OnClickListener {
     private EditText etempcode, etpassword;
     private Button btnLogin;
-    private TextView tvfrgtpass,tvversion;
+    private TextView tvfrgtpass, tvversion;
     private TelephonyManager mTelephonyManager;
     private MySharedPreference mySharedPreference;
     private String DeviceID, DeviceName;
@@ -76,14 +76,22 @@ public class LoginActivity extends AppCompatActivity implements ResponseListener
             if (MyCheckPermission.checkAppPermission(LoginActivity.this, Manifest.permission.READ_EXTERNAL_STORAGE)) {
                 if (MyCheckPermission.checkAppPermission(LoginActivity.this, Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
                     getDeviceInfo();
+                    if (MyCheckPermission.checkAppPermission(LoginActivity.this, Manifest.permission.ACCESS_COARSE_LOCATION)) {
+                        if (MyCheckPermission.checkAppPermission(LoginActivity.this, Manifest.permission.ACCESS_FINE_LOCATION)) {
+                        } else {
+                            MyCheckPermission.requestPermissionNow(LoginActivity.this, new String[]{android.Manifest.permission.READ_PHONE_STATE, android.Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.CAMERA, Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.ACCESS_FINE_LOCATION}, PERMISSION_REQUEST);
+                        }
+                    } else {
+                        MyCheckPermission.requestPermissionNow(LoginActivity.this, new String[]{android.Manifest.permission.READ_PHONE_STATE, android.Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.CAMERA, Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.ACCESS_FINE_LOCATION}, PERMISSION_REQUEST);
+                    }
                 } else {
-                    MyCheckPermission.requestPermissionNow(LoginActivity.this, new String[]{android.Manifest.permission.READ_PHONE_STATE, android.Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.CAMERA}, PERMISSION_REQUEST);
+                    MyCheckPermission.requestPermissionNow(LoginActivity.this, new String[]{android.Manifest.permission.READ_PHONE_STATE, android.Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.CAMERA, Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.ACCESS_FINE_LOCATION}, PERMISSION_REQUEST);
                 }
             } else {
-                MyCheckPermission.requestPermissionNow(LoginActivity.this, new String[]{android.Manifest.permission.READ_PHONE_STATE, android.Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.CAMERA}, PERMISSION_REQUEST);
+                MyCheckPermission.requestPermissionNow(LoginActivity.this, new String[]{android.Manifest.permission.READ_PHONE_STATE, android.Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.CAMERA, Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.ACCESS_FINE_LOCATION}, PERMISSION_REQUEST);
             }
         } else {
-            MyCheckPermission.requestPermissionNow(LoginActivity.this, new String[]{android.Manifest.permission.READ_PHONE_STATE, android.Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.CAMERA}, PERMISSION_REQUEST);
+            MyCheckPermission.requestPermissionNow(LoginActivity.this, new String[]{android.Manifest.permission.READ_PHONE_STATE, android.Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.CAMERA, Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.ACCESS_FINE_LOCATION}, PERMISSION_REQUEST);
         }
     }
 
@@ -98,7 +106,7 @@ public class LoginActivity extends AppCompatActivity implements ResponseListener
         tvfrgtpass.setOnClickListener(this);
 
         versionName = BuildConfig.VERSION_NAME;
-        tvversion.setText("Version "+versionName);
+        tvversion.setText("Version " + versionName);
 
     }
 
@@ -151,12 +159,12 @@ public class LoginActivity extends AppCompatActivity implements ResponseListener
             }
         } else if (Tag == FORGOT_PASSWORD_TAG) {
             try {
-                if (call.optString("Status").equalsIgnoreCase("true")){
+                if (call.optString("Status").equalsIgnoreCase("true")) {
                     AppAlertDialog.showDialogSelfFinish(this, "", call.getString("Message"));
-                }else {
+                } else {
                     AppAlertDialog.showDialogSelfFinish(this, "", call.getString("Message"));
                 }
-            }catch (Exception e){
+            } catch (Exception e) {
 
             }
         }
@@ -293,6 +301,16 @@ public class LoginActivity extends AppCompatActivity implements ResponseListener
                 if (grantResults[1] == PackageManager.PERMISSION_GRANTED) {
                     if (grantResults[2] == PackageManager.PERMISSION_GRANTED) {
                         getDeviceInfo();
+                        if (grantResults[3] == PackageManager.PERMISSION_GRANTED) {
+                            if (grantResults[4] == PackageManager.PERMISSION_GRANTED) {
+                            } else {
+                                Toast.makeText(this, "You have to accept Location permission ", Toast.LENGTH_SHORT).show();
+                                finish();
+                            }
+                        } else {
+                            Toast.makeText(this, "You have to accept Location permission ", Toast.LENGTH_SHORT).show();
+                            finish();
+                        }
                     } else {
                         Toast.makeText(this, "You have to accept data write permission ", Toast.LENGTH_SHORT).show();
                         finish();

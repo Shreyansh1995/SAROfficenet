@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:weightSum="2">
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_weight="1">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:text="Ticket No."
+        android:textColor="@color/colorBlack"
+        android:textSize="@dimen/textsize" />
+    <TextView
+        android:id="@+id/tv_dept"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/_10sdp"
+        android:layout_toRightOf="@+id/tv_num"
+        android:text="Department"
+        android:textColor="@color/colorBlack"
+        android:textSize="@dimen/textsize" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_department"
+        android:layout_marginLeft="@dimen/_10sdp"
+        android:layout_toRightOf="@+id/profile_image"
+        android:text="Category"
+        android:textColor="@color/colorBlack"
+        android:textSize="@dimen/textsize" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/_10sdp"
+        android:text="Sub Category"
+        android:layout_below="@+id/tv_category"
+        android:textColor="@color/colorBlack"
+        android:textSize="@dimen/textsize" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_subcategory"
+        android:layout_marginLeft="@dimen/_10sdp"
+        android:text="Status"
+        android:layout_marginBottom="@dimen/_10sdp"
+        android:textColor="@color/colorBlack"
+        android:textSize="@dimen/textsize" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_weight="1"
+        android:layout_marginRight="@dimen/_10sdp"
+        android:gravity="right">
+
+        <TextView
+            android:id="@+id/tv_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/textsize"
+            android:text="abc"/>
+        <TextView
+            android:id="@+id/tv_department"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:layout_toRightOf="@+id/tv_num"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/textsize" />
+
+        <TextView
+            android:id="@+id/tv_category"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_department"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:layout_toRightOf="@+id/profile_image"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/textsize" />
+
+        <TextView
+            android:id="@+id/tv_subcategory"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:layout_below="@+id/tv_category"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/textsize" />
+
+        <TextView
+            android:id="@+id/tv_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_subcategory"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/textsize" />
+    </LinearLayout>
+</LinearLayout>

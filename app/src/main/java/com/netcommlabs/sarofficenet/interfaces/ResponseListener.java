@@ -11,4 +11,5 @@ import org.json.JSONObject;
 public interface ResponseListener {
     void onSuccess(JSONObject call, int Tag);
     void onFailure(VolleyError error, int Tag);
+   // void onNoInternet(String msg, int Tag);
 }

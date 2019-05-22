@@ -160,7 +160,7 @@
             android:weightSum="3">
 
             <LinearLayout
-                android:id="@+id/ll_notes"
+                android:id="@+id/ll_helpdesk"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -171,14 +171,14 @@
                     android:layout_width="@dimen/_30sdp"
                     android:layout_height="@dimen/_30sdp"
                     android:layout_gravity="center"
-                    android:src="@drawable/surveyhome" />
+                    android:src="@drawable/helpdesk" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginTop="@dimen/_5sdp"
-                    android:text="Notes"
+                    android:text="Help Desk"
                     android:textColor="@color/colorPrimary"
                     android:textSize="@dimen/textsize"/>
             </LinearLayout>

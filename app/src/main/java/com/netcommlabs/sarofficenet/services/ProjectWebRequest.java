@@ -78,8 +78,12 @@ public class ProjectWebRequest {
             MyApp.getInstance().addToRequestQueue(jsonObjReq, "" + Tag);
             System.gc();
         } else {
-            if (mContext != null)
+            if (mContext != null){
+                dialog.hideProgressBar();
+               // listener.onNoInternet("No internet connection found", Tag);
                 Toast.makeText(mContext, "No internet connection found", Toast.LENGTH_LONG).show();
+            }
+
             return;
         }
     }

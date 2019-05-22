@@ -46,7 +46,7 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
             holder.itemView.setBackgroundColor(activity.getResources().getColor(R.color.colorWhite));
         }
 
-      /*  holder.itemView.setOnClickListener(new View.OnClickListener() {
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (checkNotification != null) {
@@ -54,7 +54,6 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
                 }
 
                 if (notificationModelArrayList.get(position).getModuleID().equalsIgnoreCase("1")) {
-
                     Intent intentpending = new Intent(activity, FrameActivity.class);
                     intentpending.putExtra("frag_name", "FragmentLeaveTab");
                     intentpending.putExtra("frag_tag", "leave pending request");
@@ -78,7 +77,7 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
                     activity.startActivity(intentpending);
                 }
             }
-        });*/
+        });
 
 
     }

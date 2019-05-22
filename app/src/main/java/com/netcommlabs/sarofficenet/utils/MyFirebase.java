@@ -35,8 +35,8 @@ public class MyFirebase extends FirebaseMessagingService {
         Log.d(TAG, "Notification Message Body: " + remoteMessage.getNotification().getBody());
 
         String message = remoteMessage.getNotification().getBody();
-        //String title = remoteMessage.getData().get("title");
-       // String action = remoteMessage.getData().get("click_action");
+      //  String title = remoteMessage.getData().get("title");
+        //String action = remoteMessage.getData().get("click_action");
 
         mySharedPreference = MySharedPreference.getInstance(this);
 
@@ -60,6 +60,7 @@ public class MyFirebase extends FirebaseMessagingService {
                     channelId, channelName, importance);
             notificationManager.createNotificationChannel(mChannel);
         }
+
         Intent editIntent = new Intent(this, FrameActivity.class);
         editIntent.putExtra("frag_name", "FragmentNotification");
         editIntent.putExtra("frag_tag", "notes");

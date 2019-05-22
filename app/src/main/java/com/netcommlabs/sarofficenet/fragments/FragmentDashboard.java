@@ -56,7 +56,7 @@ import static com.netcommlabs.sarofficenet.constants.UrlConstants.SEND_TOKEN_TAG
  */
 public class FragmentDashboard extends Fragment implements BaseSliderView.OnSliderClickListener, ViewPagerEx.OnPageChangeListener, View.OnClickListener, ResponseListener {
     private SliderLayout slider_layout;
-    private LinearLayout llcalender, ll_newJoinee, ll_team, ll_leave, ll_bday, ll_pending, ll_office, ll_notes, ll_suggestion;
+    private LinearLayout llcalender, ll_newJoinee, ll_team, ll_leave, ll_bday, ll_pending, ll_office, ll_notes, ll_suggestion,ll_helpdesk;
     private MySharedPreference pref;
     private ProjectWebRequest request;
     private TextView tv_pending;
@@ -145,8 +145,9 @@ public class FragmentDashboard extends Fragment implements BaseSliderView.OnSlid
         ll_bday = v.findViewById(R.id.ll_bday);
         ll_pending = v.findViewById(R.id.ll_pending);
         ll_office = v.findViewById(R.id.ll_office);
-        ll_notes = v.findViewById(R.id.ll_notes);
+        //ll_notes = v.findViewById(R.id.ll_notes);
         ll_suggestion = v.findViewById(R.id.ll_suggestion);
+        ll_helpdesk = v.findViewById(R.id.ll_helpdesk);
 
         iv_pending = v.findViewById(R.id.iv_pending);
         tv_pending = v.findViewById(R.id.tv_pending);
@@ -159,7 +160,8 @@ public class FragmentDashboard extends Fragment implements BaseSliderView.OnSlid
         ll_bday.setOnClickListener(this);
         ll_pending.setOnClickListener(this);
         ll_office.setOnClickListener(this);
-        ll_notes.setOnClickListener(this);
+        ll_helpdesk.setOnClickListener(this);
+       // ll_notes.setOnClickListener(this);
         ll_suggestion.setOnClickListener(this);
         ShowSlider();
 
@@ -350,11 +352,11 @@ public class FragmentDashboard extends Fragment implements BaseSliderView.OnSlid
                 intentoffices.putExtra("title", "Office List");
                 startActivity(intentoffices);
                 break;
-            case R.id.ll_notes:
+            case R.id.ll_helpdesk:
                 Intent intentNotes = new Intent(getContext(), FrameActivity.class);
-                intentNotes.putExtra("frag_name", "FragmentNotes");
-                intentNotes.putExtra("frag_tag", "notes");
-                intentNotes.putExtra("title", "Notes");
+                intentNotes.putExtra("frag_name", "FragmentHelpDesk");
+                intentNotes.putExtra("frag_tag", "helpdesk");
+                intentNotes.putExtra("title", "Help Desk");
                 startActivity(intentNotes);
                 break;
             case R.id.ll_suggestion:

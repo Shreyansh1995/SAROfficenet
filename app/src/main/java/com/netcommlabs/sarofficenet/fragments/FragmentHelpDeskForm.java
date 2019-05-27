@@ -81,7 +81,7 @@ public class FragmentHelpDeskForm extends Fragment implements View.OnClickListen
     private ProjectWebRequest request;
     private MySharedPreference mySharedPreference;
     final int ACTIVITY_CHOOSE_FILE = 7;
-    private String extension = "", encodedResume = "";
+    private String extension = "", encodedResume = "",fileName;
     private Bitmap bitmap;
     private ArrayList<String> DepartmentName, DepartmentID;
     private ArrayList<String> CategoryName, CategoryID;
@@ -263,7 +263,6 @@ public class FragmentHelpDeskForm extends Fragment implements View.OnClickListen
         if (!TextUtils.isEmpty(et_contact.getText().toString())) {
             MobileNo = et_contact.getText().toString();
         }
-
         try {
             JSONObject object = null;
             object = new JSONObject();
@@ -321,6 +320,7 @@ public class FragmentHelpDeskForm extends Fragment implements View.OnClickListen
                 Uri urii = data.getData();
                 String path = FilePath.getPath(getContext(), urii);
                 File myFile = new File(path);
+                fileName = path.substring(path.lastIndexOf("/"));
                 extension = path.substring(path.lastIndexOf("."));
                 if (extension.equals(".jpg") || extension.equals(".jpeg") || extension.equals(".png")) {
                     encodedResume = FilePath.encodeImage(path);
@@ -329,7 +329,8 @@ public class FragmentHelpDeskForm extends Fragment implements View.OnClickListen
                 } else {
                     Toast.makeText(getContext(), "Unsupported media", Toast.LENGTH_SHORT).show();
                 }
-                tv_attach.setText("Attached");
+                fileName = fileName.replace("/","");
+                tv_attach.setText(fileName);
 
             } catch (Exception e) {
                 e.printStackTrace();

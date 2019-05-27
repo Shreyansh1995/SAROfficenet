@@ -121,6 +121,21 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/_10sdp"
                         android:layout_marginTop="@dimen/_10sdp"
+                        android:text="Attached Document"
+                        android:textColor="#CC000000"
+                        android:textSize="@dimen/textsize" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="0.5dp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:background="#33000000" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/_10sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
                         android:layout_marginBottom="@dimen/_10sdp"
                         android:text="Raised Issue"
                         android:textColor="#CC000000"
@@ -130,7 +145,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="0.5dp"
                         android:layout_marginTop="@dimen/_10sdp"
-                        android:background="#33000000" />
+                        android:background="#33000000"
+                        android:visibility="gone" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -237,6 +253,22 @@
                         android:background="#33000000" />
 
                     <TextView
+                        android:id="@+id/tv_doc"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/_10sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:layout_marginRight="@dimen/_10sdp"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="@dimen/textsize" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="0.5dp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:background="#33000000" />
+
+                    <TextView
                         android:id="@+id/tv_raisedissue"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -252,82 +284,263 @@
                         android:layout_width="match_parent"
                         android:layout_height="0.5dp"
                         android:layout_marginTop="@dimen/_10sdp"
-                        android:background="#33000000" />
+                        android:background="#33000000"
+                        android:visibility="gone" />
                 </LinearLayout>
             </LinearLayout>
-
-            <EditText
-                android:id="@+id/et_issue"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/_70sdp"
-                android:layout_marginLeft="@dimen/_10sdp"
-                android:layout_marginTop="@dimen/_5sdp"
-                android:layout_marginRight="@dimen/_10sdp"
-                android:background="@drawable/et_border"
-                android:gravity="start"
-                android:hint="Issue"
-                android:imeOptions="actionNext"
-                android:inputType="text|textMultiLine|textCapSentences"
-                android:padding="@dimen/_5sdp"
-                android:textAlignment="textStart"
-                android:textColor="@color/colorPrimary" />
-
             <TextView
-                android:id="@+id/tv_attach"
-                android:layout_width="wrap_content"
+                android:id="@+id/tvstatus"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/_3sdp"
-                android:layout_toRightOf="@+id/ivatt"
-                android:padding="@dimen/_10sdp"
-                android:text="Attach File"
-                android:textColor="@color/colorPrimary"
-                android:textSize="16sp" />
+                android:background="@color/colorGray"
+                android:padding="@dimen/_5sdp"
+                android:text="Admin Action Details"
+                android:visibility="gone"
+                android:textColor="@color/colorBlack" />
 
             <LinearLayout
+                android:id="@+id/ll_admin"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/_10sdp"
-                android:layout_marginRight="@dimen/_10sdp"
                 android:orientation="horizontal"
-                android:weightSum="3">
+                android:visibility="gone"
+                android:layout_marginBottom="@dimen/_5sdp"
+                android:weightSum="2">
 
-                <Button
-                    android:id="@+id/btn_onhold"
+                <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/_2sdp"
                     android:layout_weight="1"
-                    android:background="@drawable/rounded_button"
-                    android:padding="@dimen/_2sdp"
-                    android:text="OnHold"
-                    android:textAllCaps="false"
-                    android:textColor="@color/colorWhite" />
+                    android:orientation="vertical">
 
-                <Button
-                    android:id="@+id/btn_reassign"
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/_10sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:text="Admin Status"
+                        android:textColor="#CC000000"
+                        android:textSize="@dimen/textsize" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="0.5dp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:background="#33000000" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/_10sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:text="Action By"
+                        android:textColor="#CC000000"
+                        android:textSize="@dimen/textsize" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="0.5dp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:background="#33000000" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/_10sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:text="Action Date"
+                        android:textColor="#CC000000"
+                        android:textSize="@dimen/textsize" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="0.5dp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:background="#33000000" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/_10sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:text="Admin Attched document"
+                        android:textColor="#CC000000"
+                        android:textSize="@dimen/textsize" />
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="0.5dp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:background="#33000000" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/_10sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:text="Admin Remark"
+                        android:textColor="#CC000000"
+                        android:textSize="@dimen/textsize" />
+
+
+
+                </LinearLayout>
+
+
+                <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/_2sdp"
                     android:layout_weight="1"
-                    android:background="@drawable/rounded_button"
-                    android:padding="@dimen/_2sdp"
-                    android:text="Re-Assigned"
-                    android:textAllCaps="false"
-                    android:textColor="@color/colorWhite" />
+                    android:gravity="right"
+                    android:orientation="vertical">
 
-                <Button
-                    android:id="@+id/btn_solved"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/_2sdp"
-                    android:layout_weight="1"
-                    android:background="@drawable/rounded_button"
-                    android:padding="@dimen/_2sdp"
-                    android:text="Solved"
-                    android:textAllCaps="false"
-                    android:textColor="@color/colorWhite" />
+                    <TextView
+                        android:id="@+id/tv_adminstatus"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="@dimen/_10sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:textColor="#CC000000"
+                        android:textSize="@dimen/textsize" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="0.5dp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:background="#33000000" />
+
+                    <TextView
+                        android:id="@+id/tv_actionby"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="@dimen/_10sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:textColor="#CC000000"
+                        android:textSize="@dimen/textsize" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="0.5dp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:background="#33000000" />
+
+                    <TextView
+                        android:id="@+id/tv_actiondate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="@dimen/_10sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:textColor="#CC000000"
+                        android:textSize="@dimen/textsize" />
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="0.5dp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:background="#33000000" />
+                    <TextView
+                        android:id="@+id/tv_attachadmin"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="@dimen/_10sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="@dimen/textsize" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="0.5dp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:background="#33000000" />
+
+                    <TextView
+                        android:id="@+id/tv_adminremark"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="@dimen/_10sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:textColor="#CC000000"
+                        android:textSize="@dimen/textsize" />
+
+
+                </LinearLayout>
             </LinearLayout>
+            <LinearLayout
+                android:id="@+id/llbtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
+                <EditText
+                    android:id="@+id/et_issue"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_70sdp"
+                    android:layout_marginLeft="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_marginRight="@dimen/_10sdp"
+                    android:background="@drawable/et_border"
+                    android:gravity="start"
+                    android:hint="Issue"
+                    android:imeOptions="actionNext"
+                    android:inputType="text|textMultiLine|textCapSentences"
+                    android:padding="@dimen/_5sdp"
+                    android:textAlignment="textStart"
+                    android:textColor="@color/colorPrimary" />
+
+                <TextView
+                    android:id="@+id/tv_attach"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/_3sdp"
+                    android:layout_toRightOf="@+id/ivatt"
+                    android:padding="@dimen/_10sdp"
+                    android:text="Attach File"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="16sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/_10sdp"
+                    android:layout_marginRight="@dimen/_10sdp"
+                    android:orientation="horizontal"
+                    android:weightSum="3">
+
+                    <Button
+                        android:id="@+id/btn_onhold"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/_2sdp"
+                        android:layout_weight="1"
+                        android:background="@drawable/rounded_button"
+                        android:padding="@dimen/_2sdp"
+                        android:text="OnHold"
+                        android:textAllCaps="false"
+                        android:textColor="@color/colorWhite" />
+
+                    <Button
+                        android:id="@+id/btn_reassign"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/_2sdp"
+                        android:layout_weight="1"
+                        android:background="@drawable/rounded_button"
+                        android:padding="@dimen/_2sdp"
+                        android:text="Re-Assigned"
+                        android:textAllCaps="false"
+                        android:textColor="@color/colorWhite" />
+
+                    <Button
+                        android:id="@+id/btn_solved"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/_2sdp"
+                        android:layout_weight="1"
+                        android:background="@drawable/rounded_button"
+                        android:padding="@dimen/_2sdp"
+                        android:text="Solved"
+                        android:textAllCaps="false"
+                        android:textColor="@color/colorWhite" />
+                </LinearLayout>
+
+            </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/ll"
@@ -336,8 +549,8 @@
                 android:layout_marginLeft="@dimen/_10sdp"
                 android:layout_marginRight="@dimen/_10sdp"
                 android:layout_marginBottom="@dimen/_10sdp"
-                android:visibility="gone"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:visibility="gone">
 
                 <Spinner
                     android:id="@+id/spnr_department"
@@ -390,6 +603,7 @@
                     android:padding="@dimen/_5sdp"
                     android:textAlignment="textStart"
                     android:textColor="@color/colorPrimary" />
+
                 <Button
                     android:id="@+id/btn_submit"
                     android:layout_width="match_parent"
@@ -397,10 +611,10 @@
                     android:layout_marginLeft="@dimen/_10sdp"
                     android:layout_marginTop="@dimen/_15sdp"
                     android:layout_marginRight="@dimen/_10sdp"
+                    android:layout_marginBottom="@dimen/_10sdp"
                     android:background="@drawable/rounded_button"
                     android:text="Submit"
                     android:textAllCaps="false"
-                    android:layout_marginBottom="@dimen/_10sdp"
                     android:textColor="@color/colorWhite" />
             </LinearLayout>
 

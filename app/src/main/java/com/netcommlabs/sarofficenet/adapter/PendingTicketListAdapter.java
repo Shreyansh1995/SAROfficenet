@@ -54,6 +54,7 @@ public class PendingTicketListAdapter extends RecyclerView.Adapter<PendingTicket
                 intent.putExtra("Submitdate", helpDeskAdminListModelArrayList.get(position).getSubmitDate());
                 intent.putExtra("Submitby", helpDeskAdminListModelArrayList.get(position).getSubmittedBy());
                 intent.putExtra("issue", helpDeskAdminListModelArrayList.get(position).getQuery());
+                intent.putExtra("status", helpDeskAdminListModelArrayList.get(position).getStatus());
                 activity.startActivity(intent);
             }
         });

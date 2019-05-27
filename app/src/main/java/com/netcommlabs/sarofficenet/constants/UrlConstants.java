@@ -120,6 +120,9 @@ public class UrlConstants {
     public static final String SOLVED= BASE_URL + "HelpDesk_Solved";
     public static final String REASSIGN= BASE_URL + "HelpDesk_ReassignSubmitRequest";
 
+    public static final String SUBMIT_STATUS= BASE_URL + "HelpDesk_SubmitStatus";
+    public static final String ADMIN_VIEW_DETAILS= BASE_URL + "HelpDesk_AdminViewDetails";
+
     /***********************************Punch In/out*************************************/
     public static final String GET_STATUS= BASE_URL + "GetInOutStatus";
     public static final String SAVEPUNCHINOOUT= BASE_URL + "SavePunchInOutDetails";
@@ -198,4 +201,6 @@ public class UrlConstants {
     public static final int REASSIGNED_TAG = 1069;
     public static final int GET_STATUS_TAG = 1070;
     public static final int SAVEPUNCHINOOUT_TAG = 1071;
+    public static final int SUBMIT_STATUS_TAG = 1072;
+    public static final int ADMIN_VIEW_DETAILS_TAG = 1073;
 }

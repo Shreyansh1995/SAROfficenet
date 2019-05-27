@@ -35,8 +35,10 @@ import com.netcommlabs.sarofficenet.constants.UrlConstants;
 import com.netcommlabs.sarofficenet.interfaces.ResponseListener;
 import com.netcommlabs.sarofficenet.model.HelpDeskAdminListModel;
 import com.netcommlabs.sarofficenet.services.ProjectWebRequest;
+import com.netcommlabs.sarofficenet.utils.AppAlertDialog;
 import com.netcommlabs.sarofficenet.utils.DateManagerUtility;
 import com.netcommlabs.sarofficenet.utils.LogUtils;
+import com.netcommlabs.sarofficenet.utils.MyCalenderUtil;
 import com.netcommlabs.sarofficenet.utils.MySharedPreference;
 
 import org.json.JSONArray;
@@ -165,27 +167,28 @@ public class FragmentHelpDeskPendingTickets extends Fragment implements Response
                 } else if (sp_status.getSelectedItemPosition() == 5) {
                     StatId = "4";
                 }
-
-                FromDate = tv_short_leave_list_from_date.getText().toString().trim();
-                ToDate = tv_short_leave_list_to_date.getText().toString().trim();
+                FromDate = MyCalenderUtil.getDateInServerSendFormat(tv_short_leave_list_from_date.getText().toString());
+                ToDate = MyCalenderUtil.getDateInServerSendFormat(tv_short_leave_list_to_date.getText().toString());
+                /*FromDate = tv_short_leave_list_from_date.getText().toString().trim();
+                ToDate = tv_short_leave_list_to_date.getText().toString().trim();*/
                 if (!TextUtils.isEmpty(et_reqno.getText().toString())) {
                     TicketNo = et_reqno.getText().toString();
                 }
                 CategoryID = CategoryIDList.get(sp_category.getSelectedItemPosition());
 
-                if (SubCategoryIDList.size() > 0){
+                if (SubCategoryIDList.size() > 0) {
                     SubCategoryID = SubCategoryIDList.get(sp_subcategory.getSelectedItemPosition());
                 }
 
                 SubmittedByID = SubmittedByIDList.get(sp_submittedby.getSelectedItemPosition());
 
-                if (CategoryID.equalsIgnoreCase("-1")){
+                if (CategoryID.equalsIgnoreCase("-1")) {
                     CategoryID = "%";
                 }
-                if (SubCategoryID.equalsIgnoreCase("-1")){
+                if (SubCategoryID.equalsIgnoreCase("-1")) {
                     SubCategoryID = "%";
                 }
-                if (SubmittedByID.equalsIgnoreCase("-1")){
+                if (SubmittedByID.equalsIgnoreCase("-1")) {
                     SubmittedByID = "%";
                 }
 
@@ -282,7 +285,7 @@ public class FragmentHelpDeskPendingTickets extends Fragment implements Response
     public void setUserVisibleHint(boolean isVisibleToUser) {
         super.setUserVisibleHint(isVisibleToUser);
         if (isVisibleToUser) {
-              getList();
+            getList();
         }
     }
 
@@ -316,6 +319,8 @@ public class FragmentHelpDeskPendingTickets extends Fragment implements Response
             object.put("ToDate", ToDate);
             object.put("TicketNo", TicketNo);
             object.put("StatusID", StatId);
+
+            TicketNo = "";
 
             request = new ProjectWebRequest(activity, object, TICKET_LIST_ADMIN, this, TICKET_LIST_ADMIN_TAG);
             request.execute();
@@ -395,6 +400,11 @@ public class FragmentHelpDeskPendingTickets extends Fragment implements Response
                 }
                 recyclerView.setAdapter(pendingTicketListAdapter);
                 pendingTicketListAdapter.notifyDataSetChanged();
+                try {
+                    AppAlertDialog.showDialogSelfFinish(activity, "", call.getString("Message"));
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
             }
         } else if (Tag == CATEGORY_LIST_ADMIN_TAG) {
             getSubmittedBy();

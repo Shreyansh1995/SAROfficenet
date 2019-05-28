@@ -56,13 +56,7 @@ public class FragmentLeaveTab extends Fragment implements TabLayout.OnTabSelecte
         LeavePagerAdapter adapter = new LeavePagerAdapter(getFragmentManager(), tabLayout.getTabCount());
         viewPager.setAdapter(adapter);
         viewPager.setOffscreenPageLimit(5);
-        if (!TextUtils.isEmpty(CurrentTab)) {
-            viewPager.setCurrentItem(Integer.parseInt(CurrentTab));
-            tabLayout.setSelectedTabIndicatorColor(getResources().getColor(R.color.colorPrimary));
-            viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
-        }else {
-            tabLayout.setSelectedTabIndicatorColor(getResources().getColor(R.color.colorPrimary));
-        }
+
 
 
         viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
@@ -84,6 +78,14 @@ public class FragmentLeaveTab extends Fragment implements TabLayout.OnTabSelecte
             }
         });
         tabLayout.setOnTabSelectedListener(this);
+
+        if (!TextUtils.isEmpty(CurrentTab)) {
+            viewPager.setCurrentItem(Integer.parseInt(CurrentTab));
+            tabLayout.setSelectedTabIndicatorColor(getResources().getColor(R.color.colorPrimary));
+            viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
+        }else {
+            tabLayout.setSelectedTabIndicatorColor(getResources().getColor(R.color.colorPrimary));
+        }
     }
 
     @Override

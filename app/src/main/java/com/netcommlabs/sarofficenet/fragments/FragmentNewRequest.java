@@ -471,7 +471,9 @@ public class FragmentNewRequest extends Fragment implements View.OnClickListener
         } else if (Tag == SUBMIT_ATTENDANCE_REGULARIZATION_TYPE_TAG) {
             try {
                 if (call.optString("Status").equals("true")) {
-                    showDialog(call.getString("Message"));
+                    //showDialog(call.getString("Message"));
+                    AppAlertDialog.showDialogOnSuccess(activity, call.getString("Message"), "FragmentAttendanceRegularizationTab", "newrequest",
+                            "Attendance Regularization", "1");
                 }else {
                     AppAlertDialog.showDialogSelfFinish(activity, "Short Leave", call.optString("Message"));
                 }
@@ -482,7 +484,7 @@ public class FragmentNewRequest extends Fragment implements View.OnClickListener
 
     }
 
-    private void showDialog(String message) {
+   /* private void showDialog(String message) {
         AlertDialog.Builder builder  = new AlertDialog.Builder(activity);
         builder.setTitle("").setMessage(message)
                 .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
@@ -497,7 +499,7 @@ public class FragmentNewRequest extends Fragment implements View.OnClickListener
                     }
                 })
                 .show();
-    }
+    }*/
 
     @Override
     public void onFailure(VolleyError error, int Tag) {

@@ -166,7 +166,6 @@ public class FragmentSuggestions extends Fragment implements ResponseListener {
         // Save a file: path for use with ACTION_VIEW intents
         //mCurrentPhotoPath = image.getAbsolutePath();
         return image;
-
     }
 
     private void hitApi(String Url) {

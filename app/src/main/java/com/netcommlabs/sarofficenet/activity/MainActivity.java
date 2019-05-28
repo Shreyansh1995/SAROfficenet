@@ -356,6 +356,7 @@ public class MainActivity extends AppCompatActivity
             editor.clear();
             editor.commit();
 
+
             Intent intent = new Intent(this, LoginActivity.class);
             startActivity(intent);
             finish();

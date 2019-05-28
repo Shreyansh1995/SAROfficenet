@@ -56,13 +56,7 @@ public class FragmentAttendanceRegularizationTab extends Fragment implements Tab
         AttendanceRegularizationPagerAdapter adapter = new AttendanceRegularizationPagerAdapter(getFragmentManager(), tabLayout.getTabCount());
         viewPager.setAdapter(adapter);
         viewPager.setOffscreenPageLimit(4);
-        if (!TextUtils.isEmpty(CurrentTab)) {
-            viewPager.setCurrentItem(Integer.parseInt(CurrentTab));
-            tabLayout.setSelectedTabIndicatorColor(getResources().getColor(R.color.colorPrimary));
-            viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
-        }else {
-            tabLayout.setSelectedTabIndicatorColor(getResources().getColor(R.color.colorPrimary));
-        }
+
 
 
         viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
@@ -84,6 +78,14 @@ public class FragmentAttendanceRegularizationTab extends Fragment implements Tab
             }
         });
         tabLayout.setOnTabSelectedListener(this);
+
+        if (!TextUtils.isEmpty(CurrentTab)) {
+            viewPager.setCurrentItem(Integer.parseInt(CurrentTab));
+            tabLayout.setSelectedTabIndicatorColor(getResources().getColor(R.color.colorPrimary));
+            viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
+        }else {
+            tabLayout.setSelectedTabIndicatorColor(getResources().getColor(R.color.colorPrimary));
+        }
     }
 
     @Override

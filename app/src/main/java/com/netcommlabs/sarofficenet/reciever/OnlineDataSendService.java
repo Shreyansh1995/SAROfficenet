@@ -111,7 +111,6 @@ public class OnlineDataSendService extends IntentService {
             public void onErrorResponse(VolleyError error) {
                 if (error instanceof NetworkError) {
                 } else if (error instanceof ServerError) {
-
                 } else if (error instanceof AuthFailureError) {
                 } else if (error instanceof ParseError) {
                 } else if (error instanceof NoConnectionError) {

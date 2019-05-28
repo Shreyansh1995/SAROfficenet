@@ -123,6 +123,9 @@ public class UrlConstants {
     public static final String SUBMIT_STATUS= BASE_URL + "HelpDesk_SubmitStatus";
     public static final String ADMIN_VIEW_DETAILS= BASE_URL + "HelpDesk_AdminViewDetails";
 
+
+    public static final String REF_TICKET_DETAILS= BASE_URL + "HelpDesk_ViewRefTicketDetails";
+
     /***********************************Punch In/out*************************************/
     public static final String GET_STATUS= BASE_URL + "GetInOutStatus";
     public static final String SAVEPUNCHINOOUT= BASE_URL + "SavePunchInOutDetails";
@@ -203,4 +206,5 @@ public class UrlConstants {
     public static final int SAVEPUNCHINOOUT_TAG = 1071;
     public static final int SUBMIT_STATUS_TAG = 1072;
     public static final int ADMIN_VIEW_DETAILS_TAG = 1073;
+    public static final int REF_TICKET_DETAILS_TAG = 1074;
 }

@@ -90,7 +90,7 @@ public class FragmentAdminHelpDeskDetail extends Fragment implements View.OnClic
     private String ButtonURL, Solution = "", Remark = "";
     private int ButtonTag;
     private String fileName, filePath, fileNameAdmin, filePathAdmin, status;
-    private TextView tv_adminstatus, tv_actionby, tv_actiondate, tv_adminremark, tv_attachadmin;
+    private TextView tv_adminstatus, tv_actionby, tv_actiondate, tv_adminremark, tv_attachadmin,tv_refno;
 
     @Override
     public void onAttach(Context context) {
@@ -140,6 +140,7 @@ public class FragmentAdminHelpDeskDetail extends Fragment implements View.OnClic
         tv_actiondate = v.findViewById(R.id.tv_actiondate);
         tv_adminremark = v.findViewById(R.id.tv_adminremark);
         tv_attachadmin = v.findViewById(R.id.tv_attachadmin);
+        tv_refno = v.findViewById(R.id.tv_refno);
 
         DepartmentName = new ArrayList<String>();
         DepartmentID = new ArrayList<String>();
@@ -185,6 +186,25 @@ public class FragmentAdminHelpDeskDetail extends Fragment implements View.OnClic
             public void onClick(View view) {
                 Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(filePath));
                 startActivity(browserIntent);
+            }
+        });
+        tv_attachadmin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(filePathAdmin));
+                startActivity(browserIntent);
+            }
+        });
+
+        tv_refno.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intentcalender = new Intent(getContext(), FrameActivity.class);
+                intentcalender.putExtra("frag_name", "FragmentRefDetails");
+                intentcalender.putExtra("frag_tag", "fragmentrefdetails");
+                intentcalender.putExtra("title", "Ref. Ticket Details");
+                intentcalender.putExtra("RefTicketNo", tv_refno.getText().toString().trim());
+                startActivity(intentcalender);
             }
         });
     }
@@ -558,10 +578,10 @@ public class FragmentAdminHelpDeskDetail extends Fragment implements View.OnClic
                         tv_adminremark.setText(call.getString("AdminRemarks"));
 
                         if (!call.getString("AdminAttachedDocumentPath").equalsIgnoreCase("null")) {
-                            filePath = call.getString("AdminAttachedDocumentPath");
-                            fileNameAdmin = filePath.substring(filePath.lastIndexOf("/"));
-                            fileNameAdmin = fileName.replace("/", "");
-                            tv_attachadmin.setText(fileName);
+                            filePathAdmin = call.getString("AdminAttachedDocumentPath");
+                            fileNameAdmin = filePathAdmin.substring(filePathAdmin.lastIndexOf("/"));
+                            fileNameAdmin = fileNameAdmin.replace("/", "");
+                            tv_attachadmin.setText(fileNameAdmin);
                         } else {
                             //tv_attachadmin.setText("Not available");
                         }
@@ -573,6 +593,10 @@ public class FragmentAdminHelpDeskDetail extends Fragment implements View.OnClic
                         tv_actiondate.setText(call.getString("AdminActionDate"));
                         tv_adminremark.setText(call.getString("AdminRemarks"));
                         //tv_attachadmin.setText("Not available");
+                    }
+
+                    if (!call.getString("RefTicketNo").equalsIgnoreCase("null")){
+                        tv_refno.setText(call.getString("RefTicketNo"));
                     }
                 }
             } catch (Exception e) {

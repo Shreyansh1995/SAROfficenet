@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -39,6 +40,7 @@ public class FragmentHelpDesk extends Fragment implements TabLayout.OnTabSelecte
     private MySharedPreference mySharedPreference;
     private String isAdmin="0";
     View viewMain;
+    private String CurrentTab;
 
     @Override
     public void onAttach(Context context) {
@@ -75,6 +77,7 @@ public class FragmentHelpDesk extends Fragment implements TabLayout.OnTabSelecte
     }
 
     private void initView() {
+        CurrentTab = getArguments().getString("tab");
         tabLayout = (TabLayout) viewMain.findViewById(R.id.tabLayout);
         tabLayout.addTab(tabLayout.newTab().setText("New Ticket"));
         tabLayout.addTab(tabLayout.newTab().setText("Raised Ticket"));
@@ -105,6 +108,13 @@ public class FragmentHelpDesk extends Fragment implements TabLayout.OnTabSelecte
             }
         });
         tabLayout.setOnTabSelectedListener(this);
+        if (!TextUtils.isEmpty(CurrentTab)) {
+            viewPager.setCurrentItem(Integer.parseInt(CurrentTab));
+            tabLayout.setSelectedTabIndicatorColor(getResources().getColor(R.color.colorPrimary));
+            viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
+        }else {
+            tabLayout.setSelectedTabIndicatorColor(getResources().getColor(R.color.colorPrimary));
+        }
     }
 
     @Override

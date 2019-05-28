@@ -725,7 +725,13 @@ public class FragmentLeaveForm extends Fragment implements ResponseListener, Vie
         } else if (Tag == UrlConstants.SUBMIT_LEAVE_REQUEST_TAG) {
             if (obj.optString("Status").equals("true")) {
                 // AppAlertDialog.showDialogFinishWithActivity(getContext(), "", obj.optString("Message"));
-                showDialogOnSuccess(obj.optString("Message"));
+                //showDialogOnSuccess(obj.optString("Message"));
+                try {
+                    AppAlertDialog.showDialogOnSuccess(getContext(), obj.getString("Message"), "FragmentLeaveTab", "leave request",
+                            "Leave", "1");
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
             } else {
                 AppAlertDialog.showDialogSelfFinish(getContext(), "", obj.optString("Message"));
             }

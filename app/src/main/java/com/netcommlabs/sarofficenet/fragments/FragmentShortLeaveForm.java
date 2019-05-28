@@ -277,7 +277,9 @@ public class FragmentShortLeaveForm extends Fragment implements View.OnClickList
 
 
                 if (call.optString("Status").equals("true")) {
-                    showDialog(call.getString("Message"));
+                    //showDialog(call.getString("Message"));
+                    AppAlertDialog.showDialogOnSuccess(activity, call.getString("Message"), "FragmentShortLeaveTab", "newrequest",
+                            "Short Leave", "1");
                 }else {
                     AppAlertDialog.showDialogSelfFinish(activity, "Short Leave", call.optString("Message"));
                 }

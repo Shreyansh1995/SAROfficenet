@@ -174,32 +174,30 @@ public class FragmentPunchinOut extends Fragment implements View.OnClickListener
             requestLocationUpdates();
         }
 
-        if (!NetworkUtils.isConnected(activity)){
+        if (!NetworkUtils.isConnected(activity)) {
             final SharedPreferences prefss = getActivity().getSharedPreferences("ATTENDANCE", Context.MODE_PRIVATE);
             String type = prefss.getString("type", null);
             String date = prefss.getString("date", null);
-            if (!TextUtils.isEmpty(date)){
-                if (CurrentDate.equalsIgnoreCase(date)){
-                    if (type.equalsIgnoreCase("PUNCHIN")){
+            if (!TextUtils.isEmpty(date)) {
+                if (CurrentDate.equalsIgnoreCase(date)) {
+                    if (type.equalsIgnoreCase("PUNCHIN")) {
                         rl_punchin.setVisibility(View.GONE);
                         rl_punchout.setVisibility(View.VISIBLE);
-                    }else {
+                    } else {
                         rl_punchin.setVisibility(View.VISIBLE);
                         rl_punchout.setVisibility(View.GONE);
                     }
-                }else {
-                    SharedPreferences preferences = getContext().getSharedPreferences("ATTENDANCE", Context.MODE_PRIVATE);
+                } else {
+                   /* SharedPreferences preferences = getContext().getSharedPreferences("ATTENDANCE", Context.MODE_PRIVATE);
                     SharedPreferences.Editor editor = preferences.edit();
                     editor.clear();
-                    editor.commit();
+                    editor.commit();*/
                 }
             }
-
-
         }
-
         hitApiToShowButton();
     }
+
     private void savePreferencePunch(String Type) {
         SharedPreferences sharedPreferences = getActivity().getSharedPreferences("ATTENDANCE", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
@@ -225,6 +223,9 @@ public class FragmentPunchinOut extends Fragment implements View.OnClickListener
     private void hitApiForAttendance() {
         if (!encoded_image.equalsIgnoreCase("")) {
             extension = ".png";
+        }
+        if (FullAddress.equalsIgnoreCase("")) {
+            FullAddress = "Unable To get Location";
         }
         try {
 
@@ -260,9 +261,9 @@ public class FragmentPunchinOut extends Fragment implements View.OnClickListener
                 dop.insertRequest(dop, SAVEPUNCHINOOUT, object.toString());
 
                 String type = null;
-                if (PunchType.equalsIgnoreCase("PUNCHIN")){
+                if (PunchType.equalsIgnoreCase("PUNCHIN")) {
                     type = "Punch in";
-                }else {
+                } else {
                     type = "Punch out";
                 }
 
@@ -307,8 +308,6 @@ public class FragmentPunchinOut extends Fragment implements View.OnClickListener
                 break;
         }
     }
-
-
 
 
     @Override

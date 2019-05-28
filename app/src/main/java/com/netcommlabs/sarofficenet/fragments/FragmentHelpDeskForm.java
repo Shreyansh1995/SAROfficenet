@@ -3,6 +3,7 @@ package com.netcommlabs.sarofficenet.fragments;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
@@ -81,7 +82,7 @@ public class FragmentHelpDeskForm extends Fragment implements View.OnClickListen
     private ProjectWebRequest request;
     private MySharedPreference mySharedPreference;
     final int ACTIVITY_CHOOSE_FILE = 7;
-    private String extension = "", encodedResume = "",fileName;
+    private String extension = "", encodedResume = "", fileName;
     private Bitmap bitmap;
     private ArrayList<String> DepartmentName, DepartmentID;
     private ArrayList<String> CategoryName, CategoryID;
@@ -329,7 +330,7 @@ public class FragmentHelpDeskForm extends Fragment implements View.OnClickListen
                 } else {
                     Toast.makeText(getContext(), "Unsupported media", Toast.LENGTH_SHORT).show();
                 }
-                fileName = fileName.replace("/","");
+                fileName = fileName.replace("/", "");
                 tv_attach.setText(fileName);
 
             } catch (Exception e) {
@@ -463,24 +464,41 @@ public class FragmentHelpDeskForm extends Fragment implements View.OnClickListen
                     focus = false;
                     AppAlertDialog.showDialogSelfFinish(activity, "", call.getString("Message"));
                 } catch (Exception e) {
-
-                }
-
-            }
-        }else if (Tag == SUBMITHELPDESK_TAG){
-
-                try {
-                    if (!call.optString("Status").equalsIgnoreCase("true")) {
-                        AppAlertDialog.showDialogFinishWithActivity(activity, "", call.getString("Message"));
-                    }else {
-                        AppAlertDialog.showDialogFinishWithActivity(activity, "", call.getString("Message"));
-                    }
-                } catch (JSONException e) {
                     e.printStackTrace();
                 }
+            }
+        } else if (Tag == SUBMITHELPDESK_TAG) {
 
+            try {
+                if (call.optString("Status").equalsIgnoreCase("true")) {
+                    //  AppAlertDialog.showDialogFinishWithActivity(activity, "", call.getString("Message"));
+                    AppAlertDialog.showDialogOnSuccess(activity, call.getString("Message"), "FragmentHelpDesk", "helpdesk",
+                            "Help Desk", "1");
+                } else {
+                    AppAlertDialog.showDialogFinishWithActivity(activity, "", call.getString("Message"));
+                }
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
         }
     }
+
+   /* private void showDialogOnSuccess(String message) {
+        android.support.v7.app.AlertDialog.Builder builder = new android.support.v7.app.AlertDialog.Builder(getContext());
+        builder.setTitle("").setMessage(message)
+                .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.cancel();
+                        Intent intent = new Intent(getContext(), FrameActivity.class);
+                        intent.putExtra("frag_name", "FragmentHelpDesk");
+                        intent.putExtra("frag_tag", "helpdesk");
+                        intent.putExtra("title", "Help Desk");
+                        intent.putExtra("tab", "1");
+                        startActivity(intent);
+                    }
+                })
+                .show();
+    }*/
 
     @Override
     public void onFailure(VolleyError error, int Tag) {

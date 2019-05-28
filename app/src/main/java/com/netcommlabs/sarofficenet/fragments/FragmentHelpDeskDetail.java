@@ -76,7 +76,7 @@ public class FragmentHelpDeskDetail extends Fragment implements ResponseListener
     private MySharedPreference mySharedPreference;
     private String ReqID = "";
     private String fileName, filePath;
-    private TextView tv_adminstatus, tv_actionby, tv_actiondate, tv_adminremark, tv_attach;
+    private TextView tv_adminstatus, tv_actionby, tv_actiondate, tv_adminremark, tv_attach, tv_attachadmin, tv_refno;
     private LinearLayout ll_admin, llradio;
     private View view;
     private RadioButton rb_satisfied, rb_unsatisfied;
@@ -86,6 +86,7 @@ public class FragmentHelpDeskDetail extends Fragment implements ResponseListener
     private Bitmap bitmap;
     private EditText et_issue;
     private String Remark = "", IsSatisfied = "0";
+    private String fileNameAdmin, filePathAdmin;
 
 
     @Override
@@ -121,6 +122,8 @@ public class FragmentHelpDeskDetail extends Fragment implements ResponseListener
         tv_actiondate = v.findViewById(R.id.tv_actiondate);
         tv_adminremark = v.findViewById(R.id.tv_adminremark);
         tv_attach = v.findViewById(R.id.tv_attach);
+        tv_attachadmin = v.findViewById(R.id.tv_attachadmin);
+        tv_refno = v.findViewById(R.id.tv_refno);
 
 
         et_issue = v.findViewById(R.id.et_issue);
@@ -148,6 +151,13 @@ public class FragmentHelpDeskDetail extends Fragment implements ResponseListener
                 startActivity(browserIntent);
             }
         });
+        tv_attachadmin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(filePathAdmin));
+                startActivity(browserIntent);
+            }
+        });
 
         tv_attach.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -155,7 +165,6 @@ public class FragmentHelpDeskDetail extends Fragment implements ResponseListener
                 try {
                     Uri photoURI = FileProvider.getUriForFile(activity,
                             "com.netcommlabs.sarofficenet.fileprovider", createImageFile());
-
                     Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
                     intent.addCategory(Intent.CATEGORY_OPENABLE);
                     intent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI);
@@ -199,77 +208,64 @@ public class FragmentHelpDeskDetail extends Fragment implements ResponseListener
                 submitReview();
             }
         });
-
+        tv_refno.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intentcalender = new Intent(getContext(), FrameActivity.class);
+                intentcalender.putExtra("frag_name", "FragmentRefDetails");
+                intentcalender.putExtra("frag_tag", "fragmentrefdetails");
+                intentcalender.putExtra("title", "Ref. Ticket Details");
+                intentcalender.putExtra("RefTicketNo", tv_refno.getText().toString().trim());
+                startActivity(intentcalender);
+            }
+        });
 
     }
 
-   /* public void seeMoreText(final String myReallyLongText) {
-        tv_raisedissue.post(new Runnable() {
+
+    public static void makeTextViewResizable(final TextView tv, final int maxLine, final String expandText, final boolean viewMore) {
+
+        if (tv.getTag() == null) {
+            tv.setTag(tv.getText());
+        }
+        ViewTreeObserver vto = tv.getViewTreeObserver();
+        vto.addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+
+            @SuppressWarnings("deprecation")
             @Override
-            public void run() {
-                // Past the maximum number of lines we want to display.
-                if (tv_raisedissue.getLineCount() > MAX_LINES) {
-                    int lastCharShown = tv_raisedissue.getLayout().getLineVisibleEnd(MAX_LINES - 1);
+            public void onGlobalLayout() {
 
-                    tv_raisedissue.setMaxLines(MAX_LINES);
-
-                    String moreString = "see more";
-                    String suffix = TWO_SPACES + moreString;
-
-                    // 3 is a "magic number" but it's just basically the length of the ellipsis we're going to insert
-                    String actionDisplayText = myReallyLongText.substring(0, lastCharShown - suffix.length() - 3) + "..." + suffix;
-
-                    SpannableString truncatedSpannableString = new SpannableString(actionDisplayText);
-                    int startIndex = actionDisplayText.indexOf(moreString);
-                    truncatedSpannableString.setSpan(new ForegroundColorSpan(getResources().getColor(android.R.color.black)), startIndex, startIndex + moreString.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
-                    tv_raisedissue.setText(truncatedSpannableString);
+                ViewTreeObserver obs = tv.getViewTreeObserver();
+                obs.removeGlobalOnLayoutListener(this);
+                if (maxLine == 0) {
+                    int lineEndIndex = tv.getLayout().getLineEnd(0);
+                    String text = tv.getText().subSequence(0, lineEndIndex - expandText.length() + 1) + " " + expandText;
+                    tv.setText(text);
+                    tv.setMovementMethod(LinkMovementMethod.getInstance());
+                    tv.setText(
+                            addClickablePartTextViewResizable(Html.fromHtml(tv.getText().toString()), tv, maxLine, expandText,
+                                    viewMore), TextView.BufferType.SPANNABLE);
+                } else if (maxLine > 0 && tv.getLineCount() >= maxLine) {
+                    int lineEndIndex = tv.getLayout().getLineEnd(maxLine - 1);
+                    String text = tv.getText().subSequence(0, lineEndIndex - expandText.length() + 1) + " " + expandText;
+                    tv.setText(text);
+                    tv.setMovementMethod(LinkMovementMethod.getInstance());
+                    tv.setText(
+                            addClickablePartTextViewResizable(Html.fromHtml(tv.getText().toString()), tv, maxLine, expandText,
+                                    viewMore), TextView.BufferType.SPANNABLE);
+                } else {
+                    int lineEndIndex = tv.getLayout().getLineEnd(tv.getLayout().getLineCount() - 1);
+                    String text = tv.getText().subSequence(0, lineEndIndex) + " " + expandText;
+                    tv.setText(text);
+                    tv.setMovementMethod(LinkMovementMethod.getInstance());
+                    tv.setText(
+                            addClickablePartTextViewResizable(Html.fromHtml(tv.getText().toString()), tv, lineEndIndex, expandText,
+                                    viewMore), TextView.BufferType.SPANNABLE);
                 }
             }
         });
-    }*/
-   public static void makeTextViewResizable(final TextView tv, final int maxLine, final String expandText, final boolean viewMore) {
 
-       if (tv.getTag() == null) {
-           tv.setTag(tv.getText());
-       }
-       ViewTreeObserver vto = tv.getViewTreeObserver();
-       vto.addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
-
-           @SuppressWarnings("deprecation")
-           @Override
-           public void onGlobalLayout() {
-
-               ViewTreeObserver obs = tv.getViewTreeObserver();
-               obs.removeGlobalOnLayoutListener(this);
-               if (maxLine == 0) {
-                   int lineEndIndex = tv.getLayout().getLineEnd(0);
-                   String text = tv.getText().subSequence(0, lineEndIndex - expandText.length() + 1) + " " + expandText;
-                   tv.setText(text);
-                   tv.setMovementMethod(LinkMovementMethod.getInstance());
-                   tv.setText(
-                           addClickablePartTextViewResizable(Html.fromHtml(tv.getText().toString()), tv, maxLine, expandText,
-                                   viewMore), TextView.BufferType.SPANNABLE);
-               } else if (maxLine > 0 && tv.getLineCount() >= maxLine) {
-                   int lineEndIndex = tv.getLayout().getLineEnd(maxLine - 1);
-                   String text = tv.getText().subSequence(0, lineEndIndex - expandText.length() + 1) + " " + expandText;
-                   tv.setText(text);
-                   tv.setMovementMethod(LinkMovementMethod.getInstance());
-                   tv.setText(
-                           addClickablePartTextViewResizable(Html.fromHtml(tv.getText().toString()), tv, maxLine, expandText,
-                                   viewMore), TextView.BufferType.SPANNABLE);
-               } else {
-                   int lineEndIndex = tv.getLayout().getLineEnd(tv.getLayout().getLineCount() - 1);
-                   String text = tv.getText().subSequence(0, lineEndIndex) + " " + expandText;
-                   tv.setText(text);
-                   tv.setMovementMethod(LinkMovementMethod.getInstance());
-                   tv.setText(
-                           addClickablePartTextViewResizable(Html.fromHtml(tv.getText().toString()), tv, lineEndIndex, expandText,
-                                   viewMore), TextView.BufferType.SPANNABLE);
-               }
-           }
-       });
-
-   }
+    }
 
     private static SpannableStringBuilder addClickablePartTextViewResizable(final Spanned strSpanned, final TextView tv,
                                                                             final int maxLine, final String spanableText, final boolean viewMore) {
@@ -277,7 +273,7 @@ public class FragmentHelpDeskDetail extends Fragment implements ResponseListener
         SpannableStringBuilder ssb = new SpannableStringBuilder(strSpanned);
 
         if (str.contains(spanableText)) {
-            ssb.setSpan(new MySpannable(false){
+            ssb.setSpan(new MySpannable(false) {
                 @Override
                 public void onClick(View widget) {
                     if (viewMore) {
@@ -349,6 +345,7 @@ public class FragmentHelpDeskDetail extends Fragment implements ResponseListener
             e.printStackTrace();
         }
     }
+
     @Override
     public void onSuccess(JSONObject call, int Tag) {
         clearRef();
@@ -395,6 +392,15 @@ public class FragmentHelpDeskDetail extends Fragment implements ResponseListener
                         tv_actionby.setText(call.getString("AdminActionBy"));
                         tv_actiondate.setText(call.getString("AdminActionDate"));
                         tv_adminremark.setText(call.getString("AdminRemarks"));
+                    }
+                    if (!call.getString("AdminAttachedDocumentPath").equalsIgnoreCase("null")) {
+                        filePathAdmin = call.getString("AdminAttachedDocumentPath");
+                        fileNameAdmin = filePathAdmin.substring(filePathAdmin.lastIndexOf("/"));
+                        fileNameAdmin = fileNameAdmin.replace("/", "");
+                        tv_attachadmin.setText(fileNameAdmin);
+                    }
+                    if (!call.getString("RefTicketNo").equalsIgnoreCase("null")) {
+                        tv_refno.setText(call.getString("RefTicketNo"));
                     }
                 }
             } catch (Exception e) {

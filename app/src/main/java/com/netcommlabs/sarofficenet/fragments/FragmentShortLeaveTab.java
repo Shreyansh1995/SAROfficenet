@@ -42,6 +42,7 @@ public class FragmentShortLeaveTab extends Fragment implements TabLayout.OnTabSe
         initView(v);
         return v;
     }
+
     private void initView(View viewMain) {
 
         CurrentTab = getArguments().getString("tab");
@@ -56,13 +57,6 @@ public class FragmentShortLeaveTab extends Fragment implements TabLayout.OnTabSe
         ShortLeavePagerAdapter adapter = new ShortLeavePagerAdapter(getFragmentManager(), tabLayout.getTabCount());
         viewPager.setAdapter(adapter);
         viewPager.setOffscreenPageLimit(4);
-        if (!TextUtils.isEmpty(CurrentTab)) {
-            viewPager.setCurrentItem(Integer.parseInt(CurrentTab));
-            tabLayout.setSelectedTabIndicatorColor(getResources().getColor(R.color.colorPrimary));
-            viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
-        }else {
-            tabLayout.setSelectedTabIndicatorColor(getResources().getColor(R.color.colorPrimary));
-        }
 
 
         viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
@@ -75,15 +69,21 @@ public class FragmentShortLeaveTab extends Fragment implements TabLayout.OnTabSe
             public void onPageSelected(int position) {
                 TabLayout.Tab tab = tabLayout.getTabAt(position);
                 tab.select();
-
             }
-
             @Override
             public void onPageScrollStateChanged(int state) {
 
             }
         });
         tabLayout.setOnTabSelectedListener(this);
+
+        if (!TextUtils.isEmpty(CurrentTab)) {
+            viewPager.setCurrentItem(Integer.parseInt(CurrentTab));
+            tabLayout.setSelectedTabIndicatorColor(getResources().getColor(R.color.colorPrimary));
+            viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
+        } else {
+            tabLayout.setSelectedTabIndicatorColor(getResources().getColor(R.color.colorPrimary));
+        }
     }
 
     @Override

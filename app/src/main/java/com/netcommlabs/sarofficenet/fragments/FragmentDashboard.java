@@ -357,6 +357,7 @@ public class FragmentDashboard extends Fragment implements BaseSliderView.OnSlid
                 intentNotes.putExtra("frag_name", "FragmentHelpDesk");
                 intentNotes.putExtra("frag_tag", "helpdesk");
                 intentNotes.putExtra("title", "Help Desk");
+                intentNotes.putExtra("tab", "0");
                 startActivity(intentNotes);
                 break;
             case R.id.ll_suggestion:
